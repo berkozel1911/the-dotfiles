@@ -1,6 +1,6 @@
 # font settings
 font-family = "JetBrainsMono Nerd Font"
-font-size = 10 
+font-size = 12
 font-feature = liga
 
 # cosmetics
@@ -8,7 +8,8 @@ theme = GitHub Dark Default
 shell-integration-features = no-cursor
 cursor-style = underline
 cursor-style-blink = true
-background-opacity = 0.95
+background-opacity = 0.9
+background-blur = true
 
 # misc
 mouse-hide-while-typing = true
