@@ -1,6 +1,6 @@
 # Hyprland setup (Fedora 44)
 
-Hyprland 0.56 · Lua config · master-stack · Waybar · uwsm session.
+Hyprland 0.56 · Lua config · master-stack · Waybar · uwsm session · greetd login.
 Palette: Kanagawa base (`#1f1f28`) + Ayu bright foregrounds, cyan accent (`#95e6cb`).
 
 ## 1. Packages
@@ -44,9 +44,26 @@ systemctl --user enable waybar.service hypridle.service hyprsunset.service hyprp
 
 Mako is D-Bus activated, so it starts on the first notification.
 
-## 4. Log in
+## 4. Login: greetd + tuigreet
 
-Pick **Hyprland (uwsm-managed)** in SDDM.
+Replaces SDDM. System files live in `etc/` and are **copied** (the greeter user can't read your home):
+
+```bash
+sudo dnf install greetd tuigreet
+sudo install -Dm644 etc/greetd/config.toml /etc/greetd/config.toml
+sudo install -Dm644 etc/greetd/vtrgb /etc/greetd/vtrgb
+sudo install -Dm644 etc/systemd/system/greetd.service.d/palette.conf /etc/systemd/system/greetd.service.d/palette.conf
+sudo install -Dm644 etc/tmpfiles.d/tuigreet.conf /etc/tmpfiles.d/tuigreet.conf
+sudo systemd-tmpfiles --create /etc/tmpfiles.d/tuigreet.conf
+sudo systemctl disable sddm.service
+sudo systemctl enable greetd.service
+```
+
+Reboot. tuigreet starts Hyprland by default; `F3` picks another session (e.g. Plasma), `F12` is power.
+Fedora's `/etc/pam.d/greetd` already unlocks GNOME Keyring / KWallet, so no PAM edits are needed.
+The console itself is recolored to the palette (`setvtrgb`), so tuigreet's ANSI colors match.
+
+To go back: `sudo systemctl disable greetd && sudo systemctl enable sddm`.
 
 ## Keys
 
