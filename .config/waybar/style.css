@@ -1,0 +1,83 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 13px;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @fg;
+}
+
+tooltip {
+    background: @bg;
+    border: 1px solid @surface;
+    border-radius: 8px;
+}
+tooltip label { color: @fg; }
+
+/* Every module is a pill on the surface color */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background: @surface;
+    border-radius: 8px;
+    padding: 0 10px;
+}
+
+/* Workspaces */
+#workspaces { padding: 0 4px; }
+#workspaces button {
+    color: @muted;
+    padding: 0 8px;
+    margin: 4px 1px;
+    border-radius: 6px;
+    background: transparent;
+}
+#workspaces button.empty  { color: alpha(@muted, 0.6); }
+#workspaces button:not(.empty) { color: @fg; }
+#workspaces button.active {
+    background: @accent;
+    color: @bg;
+}
+#workspaces button.urgent { background: @red; color: @bg; }
+#workspaces button:hover  { background: alpha(@accent, 0.25); box-shadow: none; text-shadow: none; }
+
+/* Scratchpad indicators */
+#custom-scratch-music.empty,
+#custom-scratch-monitor.empty   { color: @muted; }
+#custom-scratch-music.active    { color: @magenta; }
+#custom-scratch-monitor.active  { color: @yellow; }
+
+/* Center */
+#clock { color: @fg; font-weight: bold; }
+#mpris { color: @green; }
+#mpris.paused { color: @muted; }
+
+/* Resources */
+#cpu         { color: @blue; }
+#memory      { color: @magenta; }
+#temperature { color: @cyan; }
+#cpu.warning, #memory.warning { color: @yellow; }
+#cpu.critical, #memory.critical, #temperature.critical { color: @red; }
+
+/* Status group shares one pill */
+#status { padding: 0 4px; }
+#status > * { padding: 0 6px; background: transparent; }
+#pulseaudio       { color: @blue; }
+#pulseaudio.muted { color: @muted; }
+#network          { color: @cyan; }
+#network.disconnected { color: @red; }
+#bluetooth        { color: @blue; }
+#bluetooth.off    { color: @muted; }
+
+#custom-nightlight.on  { color: @yellow; }
+#custom-nightlight.off { color: @muted; }
+
+#language { color: @fg; }
+
+#tray > .needs-attention { background: @red; }

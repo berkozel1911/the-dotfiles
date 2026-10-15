@@ -1,0 +1,124 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "margin-top": 6,
+    "margin-left": 8,
+    "margin-right": 8,
+    "spacing": 6,
+
+    "modules-left": ["hyprland/workspaces", "custom/scratch-music", "custom/scratch-monitor"],
+    "modules-center": ["clock", "mpris"],
+    "modules-right": ["cpu", "memory", "temperature", "group/status", "custom/nightlight", "hyprland/language", "tray"],
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "show-special": false,
+        "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+        "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+    },
+
+    // Scratchpad indicators: lit when the scratchpad has windows, click toggles it
+    "custom/scratch-music": {
+        "exec": "~/.config/waybar/scripts/scratch.sh music 󰎆",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"music\")'"
+    },
+    "custom/scratch-monitor": {
+        "exec": "~/.config/waybar/scripts/scratch.sh monitor 󰄨",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"monitor\")'"
+    },
+
+    "clock": {
+        "format": "{:%a %d %b  %H:%M}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+            "mode": "month",
+            "weeks-pos": "left",
+            "format": {
+                "months": "<span color='#ffcc66'><b>{}</b></span>",
+                "weeks": "<span color='#727169'>W{}</span>",
+                "weekdays": "<span color='#73d0ff'>{}</span>",
+                "today": "<span color='#95e6cb'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    "mpris": {
+        "format": "{status_icon} {title} · {artist}",
+        "format-stopped": "",
+        "status-icons": { "playing": "󰐊", "paused": "󰏤" },
+        "title-len": 32,
+        "artist-len": 20,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"music\")'",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+
+    "cpu": {
+        "format": "󰍛 {usage}%",
+        "interval": 3,
+        "states": { "warning": 70, "critical": 90 },
+        "on-click": "hyprctl dispatch 'hl.dsp.workspace.toggle_special(\"monitor\")'"
+    },
+    "memory": {
+        "format": "󰘚 {percentage}%",
+        "interval": 5,
+        "states": { "warning": 75, "critical": 90 },
+        "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+    },
+    "temperature": {
+        "format": " {temperatureC}°",
+        "critical-threshold": 85,
+        "interval": 5
+    },
+
+    "group/status": {
+        "orientation": "horizontal",
+        "modules": ["pulseaudio", "network", "bluetooth"]
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 muted",
+        "format-icons": { "default": ["󰕿", "󰖀", "󰕾"], "headphone": "󰋋" },
+        "scroll-step": 5,
+        "on-click": "uwsm app -- flatpak run com.saivert.pwvucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+    "network": {
+        "format-ethernet": "󰈀",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-disconnected": "󰈂",
+        "tooltip-format": "{ifname}  {ipaddr}/{cidr}\n {bandwidthDownBytes}   {bandwidthUpBytes}",
+        "interval": 5
+    },
+    "bluetooth": {
+        "format": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format-connected": "{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}"
+    },
+
+    "custom/nightlight": {
+        "exec": "~/.config/hypr/scripts/nightlight.sh status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 8,
+        "on-click": "~/.config/hypr/scripts/nightlight.sh"
+    },
+
+    "hyprland/language": {
+        "format": "{short}"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    }
+}

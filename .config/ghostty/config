@@ -4,7 +4,7 @@ font-size = 10
 font-feature = liga
 
 # cosmetics
-theme = GitHub Dark Default
+theme = kanagawa-bright
 shell-integration-features = no-cursor
 cursor-style = underline
 cursor-style-blink = true

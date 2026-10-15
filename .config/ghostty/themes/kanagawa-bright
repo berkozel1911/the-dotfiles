@@ -1,0 +1,25 @@
+# Kanagawa base + Ayu bright foregrounds, cyan accent
+
+background = #1f1f28
+foreground = #dcd7ba
+cursor-color = #95e6cb
+cursor-text = #1f1f28
+selection-background = #3a3a4e
+selection-foreground = #dcd7ba
+
+palette = 0=#2a2a37
+palette = 1=#f28779
+palette = 2=#d5ff80
+palette = 3=#ffcc66
+palette = 4=#73d0ff
+palette = 5=#dfbfff
+palette = 6=#95e6cb
+palette = 7=#dcd7ba
+palette = 8=#727169
+palette = 9=#ff9a8c
+palette = 10=#e2ffa0
+palette = 11=#ffd98a
+palette = 12=#95dcff
+palette = 13=#e9d0ff
+palette = 14=#b0f0da
+palette = 15=#f2ecd0

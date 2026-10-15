@@ -1,0 +1,12 @@
+/* Kanagawa base + Ayu bright, cyan accent */
+@define-color bg      #1f1f28;
+@define-color surface #2a2a37;
+@define-color fg      #dcd7ba;
+@define-color muted   #727169;
+@define-color red     #f28779;
+@define-color green   #d5ff80;
+@define-color yellow  #ffcc66;
+@define-color blue    #73d0ff;
+@define-color magenta #dfbfff;
+@define-color cyan    #95e6cb;
+@define-color accent  @cyan;

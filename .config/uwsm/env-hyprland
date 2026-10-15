@@ -1,0 +1,2 @@
+# Hyprland-only environment (sourced by uwsm after ./env).
+export HYPRCURSOR_SIZE=24
