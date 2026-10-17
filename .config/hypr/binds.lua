@@ -1,6 +1,6 @@
 -- See https://wiki.hypr.land/configuring/core/binds/ and /configuring/core/dispatchers/
 
-local apps    = require("./apps.lua")
+local apps    = require("apps")
 local scripts = os.getenv("HOME") .. "/.config/hypr/scripts/"
 local mod     = "SUPER"
 

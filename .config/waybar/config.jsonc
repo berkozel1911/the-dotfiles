@@ -86,7 +86,7 @@
         "format-muted": "󰝟 muted",
         "format-icons": { "default": ["󰕿", "󰖀", "󰕾"], "headphone": "󰋋" },
         "scroll-step": 5,
-        "on-click": "uwsm app -- flatpak run com.saivert.pwvucontrol",
+        "on-click": "uwsm app -- pavucontrol",
         "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
     },
     "network": {

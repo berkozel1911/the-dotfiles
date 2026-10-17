@@ -1,0 +1,6 @@
+# Build environment for the scripts in ./pkgs (Debian 13, matches the host).
+FROM docker.io/library/debian:13
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+      build-essential ca-certificates curl xz-utils git pkg-config dpkg-dev \
+ && rm -rf /var/lib/apt/lists/*

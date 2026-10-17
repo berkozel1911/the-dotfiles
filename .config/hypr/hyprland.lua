@@ -1,9 +1,9 @@
--- Hyprland 0.56 (Lua config). Started via uwsm: environment lives in ~/.config/uwsm/env*
+-- Hyprland 0.55+ (Lua config). Started via uwsm: environment lives in ~/.config/uwsm/env*
 -- Wiki: https://wiki.hypr.land/configuring/
 
-require("./monitors.lua")
-require("./look.lua")
-require("./input.lua")
-require("./rules.lua")
-require("./binds.lua")
-require("./autostart.lua")
+require("monitors")
+require("look")
+require("input")
+require("rules")
+require("binds")
+require("autostart")

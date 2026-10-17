@@ -1,6 +1,6 @@
 -- See https://wiki.hypr.land/configuring/core/config-options/
 
-local c = require("./colors.lua")
+local c = require("colors")
 
 hl.config({
     general = {

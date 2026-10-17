@@ -1,16 +1,9 @@
 # greetd + tuigreet. Install: see INSTALL.md (copied to /etc, not symlinked).
+# Keep `command` on one line: Debian's greetd 0.10 doesn't parse multi-line strings.
 
 [terminal]
 vt = 1
 
 [default_session]
-command = """
-tuigreet \
-  --cmd 'uwsm start hyprland.desktop' \
-  --remember --remember-user-session \
-  --time --time-format '%a %d %b  %H:%M' \
-  --asterisks \
-  --window-padding 2 --container-padding 2 \
-  --theme 'container=black;border=cyan;title=cyan;text=gray;time=cyan;greet=darkgray;prompt=blue;input=white;action=darkgray;button=yellow'
-"""
-user = "greetd"
+command = "tuigreet --cmd 'uwsm start hyprland.desktop' --remember --remember-user-session --time --time-format '%a %d %b  %H:%M' --asterisks --window-padding 2 --container-padding 2 --theme 'container=black;border=cyan;title=cyan;text=gray;time=cyan;greet=darkgray;prompt=blue;input=white;action=darkgray;button=yellow'"
+user = "_greetd"

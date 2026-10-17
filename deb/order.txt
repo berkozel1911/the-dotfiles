@@ -1,0 +1,4 @@
+# Packages Debian 13 doesn't ship (everything else comes from trixie / trixie-backports).
+ghostty
+yazi
+neovim

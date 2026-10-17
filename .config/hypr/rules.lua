@@ -1,6 +1,6 @@
 -- See https://wiki.hypr.land/configuring/core/rules/
 
-local apps = require("./apps.lua")
+local apps = require("apps")
 
 ------------------
 --- WORKSPACES ---
@@ -35,7 +35,7 @@ hl.window_rule({
 -- Small floating utilities
 hl.window_rule({
     name   = "float-utilities",
-    match  = { class = "^(com\\.saivert\\.pwvucontrol|org\\.pulseaudio\\.pavucontrol|blueman-manager|nm-connection-editor|com\\.gabm\\.satty)$" },
+    match  = { class = "^(org\\.pulseaudio\\.pavucontrol|blueman-manager|nm-connection-editor|swappy)$" },
     float  = true,
     size   = { "monitor_w * 0.45", "monitor_h * 0.55" },
     center = true,

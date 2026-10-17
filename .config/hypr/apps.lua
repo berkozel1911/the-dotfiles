@@ -8,7 +8,7 @@ return {
     browser  = run .. "brave-browser",
     editor   = run .. "ghostty -e nvim",
     launcher = "pkill -x fuzzel || " .. run .. "fuzzel",
-    mixer    = run .. "flatpak run com.saivert.pwvucontrol",
+    mixer    = run .. "pavucontrol",
 
     -- Scratchpads
     music  = run .. "brave-browser --app=https://music.youtube.com",
